@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, TextInput } from 'react-native';
+
+const Cat = (props) => {
+  if (props.name !== undefined)
+    return <Text>Hello, I am your {props.name}!</Text>;
+
+  return <Text>Hello, I am your cat!</Text>;
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView style={styles.container}>
+      <Cat name={"Alberto"} />
+      <Cat />
+    </ScrollView>
   );
 }
 
@@ -14,7 +21,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
